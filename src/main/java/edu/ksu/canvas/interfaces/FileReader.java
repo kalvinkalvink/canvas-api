@@ -1,8 +1,10 @@
 package edu.ksu.canvas.interfaces;
 
 import edu.ksu.canvas.model.File;
+import edu.ksu.canvas.requestOptions.ListCourseFileOptions;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -17,4 +19,5 @@ public interface FileReader extends CanvasReader<File, FileReader> {
      * @throws IOException When there is an error communicating with Canvas
      */
     Optional<File> getFile(String url) throws IOException;
+	List<File> listCourseFile(ListCourseFileOptions listCourseFileOptions) throws IOException;
 }

@@ -32,10 +32,7 @@ public class AnnouncementImpl extends BaseImpl<Announcement, AnnouncementReader,
 
     @Override
     public List<Announcement> listCourseAnnouncement(ListCourseAnnouncementOptions listCourseAnnouncementOptions) throws IOException {
-        String courseContextCode = listCourseAnnouncementOptions.getCourseIdList().stream()
-                .map(courseId->String.format("context_codes[]=course_%s", courseId))
-                .collect(HashMap);
-        String url = buildCanvasUrl("announcements", new HashMap<>());
+        String url = buildCanvasUrl("announcements", listCourseAnnouncementOptions.getOptionsMap());
         return getListFromCanvas(url);
     }
 }
