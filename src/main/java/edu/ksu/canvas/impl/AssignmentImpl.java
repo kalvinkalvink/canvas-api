@@ -10,7 +10,6 @@ import edu.ksu.canvas.oauth.OauthToken;
 import edu.ksu.canvas.requestOptions.GetSingleAssignmentOptions;
 import edu.ksu.canvas.requestOptions.ListCourseAssignmentsOptions;
 import edu.ksu.canvas.requestOptions.ListUserAssignmentOptions;
-import edu.ksu.canvas.requestOptions.SubmitAssignmentOptions;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,10 +76,6 @@ public class AssignmentImpl extends BaseImpl<Assignment, AssignmentReader, Assig
 		return responseParser.parseToObject(Assignment.class, response);
 	}
 
-	public void submitAssignment(SubmitAssignmentOptions submitAssignmentOptions) {
-		buildCanvasUrl("courses/" + courseId + "/assignments/" + assignmentId + "/submissions", );
-		canvasMessenger.sendFileToCanvas(oauthToken, );
-	}
 
 	@Override
 	protected Type listType() {
