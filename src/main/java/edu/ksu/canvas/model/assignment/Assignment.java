@@ -1,6 +1,7 @@
 package edu.ksu.canvas.model.assignment;
 
 import com.google.gson.annotations.SerializedName;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import edu.ksu.canvas.annotation.CanvasField;
 import edu.ksu.canvas.annotation.CanvasObject;
 import edu.ksu.canvas.model.BaseCanvasModel;
@@ -64,6 +65,8 @@ public class Assignment extends BaseCanvasModel implements Serializable{
     private List<RubricCriterion> rubricCriteria;
     // ... and then it adds a truncated list of rubric attributes and calls it a "rubric setting"
     private RubricSettings rubricSettings;
+
+	private Boolean hasSubmittedSubmissions;
 
     public Long getId() {
         return id;
@@ -439,7 +442,16 @@ public class Assignment extends BaseCanvasModel implements Serializable{
         this.rubricSettings = rubricSettings;
     }
 
-    public class ExternalToolTagAttribute implements Serializable {
+	public Boolean getHasSubmittedSubmissions() {
+		return hasSubmittedSubmissions;
+	}
+
+	public Assignment setHasSubmittedSubmissions(Boolean hasSubmittedSubmissions) {
+		this.hasSubmittedSubmissions = hasSubmittedSubmissions;
+		return this;
+	}
+
+	public class ExternalToolTagAttribute implements Serializable {
         private static final long serialVersionUID = 1L;
 
         private String url;

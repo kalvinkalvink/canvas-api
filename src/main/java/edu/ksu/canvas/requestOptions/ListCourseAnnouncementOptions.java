@@ -1,5 +1,6 @@
 package edu.ksu.canvas.requestOptions;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ListCourseAnnouncementOptions extends BaseOptions {
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	public enum Include {
 		SECTIONS, SECTIONS_USER_COUNT;
 
@@ -31,12 +33,12 @@ public class ListCourseAnnouncementOptions extends BaseOptions {
 
 
 	public ListCourseAnnouncementOptions startDate(Date startDate) {
-		addSingleItem("start_date", startDate.toString());
+		addSingleItem("start_date", simpleDateFormat.format(startDate));
 		return this;
 	}
 
 	public ListCourseAnnouncementOptions endDate(Date endDate) {
-		addSingleItem("end_date", endDate.toString());
+		addSingleItem("end_date", simpleDateFormat.format(endDate));
 		return this;
 	}
 

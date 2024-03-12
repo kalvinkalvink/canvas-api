@@ -33,4 +33,5 @@ public interface AssignmentWriter extends CanvasWriter<Assignment, AssignmentWri
      * @throws IOException When there is an error communicating with Canvas
      */
     Optional<Assignment> editAssignment(String courseId, Assignment assignment) throws IOException;
+
 }
